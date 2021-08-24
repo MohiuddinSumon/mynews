@@ -1,0 +1,14 @@
+{% extends 'news/base.html' %}
+{% block content %}
+    <!-- this posts is the key of dictionary passed in render function-->
+    {% for article in articles %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+            </div>
+            <p class="article-content">{{ article }}</p>
+          </div>
+        </article>
+    {% endfor%}
+
+{% endblock content %}
