@@ -1,15 +1,25 @@
 {% extends 'news/base.html' %}
+{% load tz %}
 {% block content %}
-    <!-- this posts is the key of dictionary passed in render function-->
-    {% for article in articles %}
-        <article class="media content-section">
-          <div class="media-body">
-              <h3>{{ article.title }}</h3>
-            <div class="article-metadata">
-            </div>
-            <p class="article-content">{{ article.description }}</p>
+
+    <div class="container">
+        <div class="row">
+        {% for article in articles %}
+            <div class="col-md mb-3">
+                <div class="card h-100" style="width: 20rem;">
+                <img src="{{ article.urlToImage }}" class="card-img-top" alt="{{ article.source.name }}">
+                <div class="card-body">
+                  <h5 class="card-title">{{ article.title }}</h5>
+                  <p class="card-text">{{ article.description|truncatechars:150 }}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Source: {{ article.source.name }}</small>
+                    <a class="btn btn-sm btn-outline-success float-right" target="_blank" href="{{ article.url }}"> Read More</a>
+                </div>
           </div>
-        </article>
-    {% endfor%}
+            </div>
+        {% endfor%}
+        </div>
+    </div>
 
 {% endblock content %}
