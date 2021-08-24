@@ -27,4 +27,7 @@ Please follow the following guideline to set up this application
   * `ALTER USER saleor WITH PASSWORD 'news';`
   * `CREATE DATABASE mynews;`
 
-
+## Project Setup
+* `git clone https://github.com/MohiuddinSumon/mynews.git`
+* `cd mynews`
+* `pip install -r requirements.txt`
