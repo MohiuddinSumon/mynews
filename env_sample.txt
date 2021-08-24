@@ -1,0 +1,2 @@
+NEWSAPI_KEY=your_api_key_from_newsapi
+DATABASE_URL=postgres://user:password@host:port/database
