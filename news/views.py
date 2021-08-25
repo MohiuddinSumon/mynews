@@ -26,6 +26,8 @@ def home(request):
 
     articles = head_lines['articles']
 
+    # articles = {}
+
     return render(request, 'news/home.html', {
             'articles': articles,
             'countries': countries,
