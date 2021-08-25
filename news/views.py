@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from newsapi import NewsApiClient
 from decouple import config
 from .models import Country, Source
