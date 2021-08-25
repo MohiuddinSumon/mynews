@@ -1,7 +1,7 @@
 {% extends 'news/base.html' %}
 {% load tz %}
 {% block content %}
-
+    <h2>Currently showing news of {{ selected_country }} country from {{ selected_source }} source. </h2>
     <div class="container m-3 p-3">
         <div class="row">
             <div class="col-md-6 border border-primary">
@@ -38,9 +38,7 @@
             </form>
         </div>
         </div>
-
     </div>
-
 
     <div class="container">
         <div class="row">
@@ -53,7 +51,7 @@
                   <p class="card-text">{{ article.description|truncatechars:150 }}</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Source: {{ article.source.name }}</small>
+                    <small class="text-muted">Country: {{ article.source.name }}</small>
                     <a class="btn btn-sm btn-outline-success float-right" target="_blank" href="{{ article.url }}"> Read More</a>
                 </div>
           </div>
