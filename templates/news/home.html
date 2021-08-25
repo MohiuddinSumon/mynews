@@ -2,24 +2,31 @@
 {% load tz %}
 {% block content %}
 
-    <div class="container m-3 border border-primary p-3">
+    <div class="container m-3 p-3">
         <div class="row">
+            <div class="col-md-6 border border-primary">
             <form class="form-inline" method=POST action="{% url 'home' %}">
                 {% csrf_token %}
-                <div class="col-md-3">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Keyword" name="keyword">
-                </div>
-                <div class="col-md-3">
+                <div class="col-md-8">
                     <select class="custom-select my-1 mr-sm-2" id="country" name="country">
-                        <option selected>Select Country</option>
+                        <option selected value="">Select Country</option>
                         {% for country in countries %}
                             <option value="{{ country.code }}">{{ country.name }}</option>
                         {% endfor %}
                     </select>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 text-center">
+                    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+            <div class="col-md-6 border border-primary">
+            <form class="form-inline" method=POST action="{% url 'home' %}">
+                {% csrf_token %}
+
+                <div class="col-md-8">
                     <select class="custom-select my-1 mr-sm-2" id="source" name="source">
-                        <option selected>Select Source</option>
+                        <option selected value="">Select Source</option>
                         {% for source in sources %}
                             <option value="{{ source.code }}">{{ source.name }}</option>
                         {% endfor %}
@@ -30,6 +37,8 @@
                 </div>
             </form>
         </div>
+        </div>
+
     </div>
 
 
