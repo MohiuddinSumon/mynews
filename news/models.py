@@ -1,3 +1,21 @@
 from django.db import models
 
-# Create your models here.
+
+class Country(models.Model):
+    code = models.CharField(max_length=2, unique=True, blank=False)
+    name = models.CharField(max_length=50, blank=True)
+
+    def __str__(self):
+        return f"Country Code = {self.code}, Country Name = {self.name}"
+
+
+class Source(models.Model):
+    code = models.CharField(max_length=50, unique=True, blank=False)
+    name = models.CharField(max_length=250, unique=True, blank=False)
+    description = models.TextField(null=True, blank=True)
+    url = models.URLField()
+    language = models.CharField(max_length=2, null=True, blank=False)
+    country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, related_name='sources')
+
+    def __str__(self):
+        return f"Source Code = {self.code}, Source Name = {self.name}"
