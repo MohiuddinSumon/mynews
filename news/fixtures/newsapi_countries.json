@@ -1,0 +1,442 @@
+[
+{
+  "model": "news.country",
+  "pk": 1,
+  "fields": {
+    "code": "ae",
+    "name": "United Arab Emirates"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 2,
+  "fields": {
+    "code": "ar",
+    "name": "Argentina"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 3,
+  "fields": {
+    "code": "at",
+    "name": "Austria"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 4,
+  "fields": {
+    "code": "au",
+    "name": "Australia"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 5,
+  "fields": {
+    "code": "be",
+    "name": "Belgium"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 6,
+  "fields": {
+    "code": "bg",
+    "name": "Bulgaria"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 7,
+  "fields": {
+    "code": "br",
+    "name": "Brazil"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 8,
+  "fields": {
+    "code": "ca",
+    "name": "Canada"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 9,
+  "fields": {
+    "code": "ch",
+    "name": "Switzerland"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 10,
+  "fields": {
+    "code": "cn",
+    "name": "China"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 11,
+  "fields": {
+    "code": "co",
+    "name": "Colombia"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 12,
+  "fields": {
+    "code": "cu",
+    "name": "Cuba"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 13,
+  "fields": {
+    "code": "cz",
+    "name": "Czech Republic"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 14,
+  "fields": {
+    "code": "de",
+    "name": "Germany"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 15,
+  "fields": {
+    "code": "eg",
+    "name": "Egypt"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 16,
+  "fields": {
+    "code": "fr",
+    "name": "France"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 17,
+  "fields": {
+    "code": "gb",
+    "name": "United Kingdom"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 18,
+  "fields": {
+    "code": "gr",
+    "name": "Greece"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 19,
+  "fields": {
+    "code": "hk",
+    "name": "Hong Kong"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 20,
+  "fields": {
+    "code": "hu",
+    "name": "Hungary"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 21,
+  "fields": {
+    "code": "id",
+    "name": "Indonesia"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 22,
+  "fields": {
+    "code": "ie",
+    "name": "Ireland"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 23,
+  "fields": {
+    "code": "il",
+    "name": "Israel"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 24,
+  "fields": {
+    "code": "in",
+    "name": "India"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 25,
+  "fields": {
+    "code": "it",
+    "name": "Italy"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 26,
+  "fields": {
+    "code": "jp",
+    "name": "Japan"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 27,
+  "fields": {
+    "code": "kr",
+    "name": "Korea, Republic of"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 28,
+  "fields": {
+    "code": "lt",
+    "name": "Lithuania"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 29,
+  "fields": {
+    "code": "lv",
+    "name": "Latvia"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 30,
+  "fields": {
+    "code": "ma",
+    "name": "Morocco"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 31,
+  "fields": {
+    "code": "mx",
+    "name": "Mexico"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 32,
+  "fields": {
+    "code": "my",
+    "name": "Malaysia"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 33,
+  "fields": {
+    "code": "ng",
+    "name": "Nigeria"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 34,
+  "fields": {
+    "code": "nl",
+    "name": "Netherlands"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 35,
+  "fields": {
+    "code": "no",
+    "name": "Norway"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 36,
+  "fields": {
+    "code": "nz",
+    "name": "New Zealand"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 37,
+  "fields": {
+    "code": "ph",
+    "name": "Philippines"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 38,
+  "fields": {
+    "code": "pl",
+    "name": "Poland"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 39,
+  "fields": {
+    "code": "pt",
+    "name": "Portugal"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 40,
+  "fields": {
+    "code": "ro",
+    "name": "Romania"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 41,
+  "fields": {
+    "code": "rs",
+    "name": "Serbia"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 42,
+  "fields": {
+    "code": "ru",
+    "name": "Russian Federation"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 43,
+  "fields": {
+    "code": "sa",
+    "name": "Saudi Arabia"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 44,
+  "fields": {
+    "code": "se",
+    "name": "Sweden"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 45,
+  "fields": {
+    "code": "sg",
+    "name": "Singapore"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 46,
+  "fields": {
+    "code": "si",
+    "name": "Slovenia"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 47,
+  "fields": {
+    "code": "sk",
+    "name": "Slovakia"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 48,
+  "fields": {
+    "code": "th",
+    "name": "Thailand"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 49,
+  "fields": {
+    "code": "tr",
+    "name": "Turkey"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 50,
+  "fields": {
+    "code": "tw",
+    "name": "Taiwan, Province of China"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 51,
+  "fields": {
+    "code": "ua",
+    "name": "Ukraine"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 52,
+  "fields": {
+    "code": "us",
+    "name": "United States"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 53,
+  "fields": {
+    "code": "ve",
+    "name": "Venezuela, Bolivarian Republic of"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 54,
+  "fields": {
+    "code": "za",
+    "name": "South Africa"
+  }
+},
+{
+  "model": "news.country",
+  "pk": 55,
+  "fields": {
+    "code": "pk",
+    "name": "Pakistan"
+  }
+}
+]

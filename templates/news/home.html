@@ -1,0 +1,63 @@
+{% extends 'news/base.html' %}
+{% load tz %}
+{% block content %}
+    <h2>Currently showing news of {{ selected_country }} country from {{ selected_source }} source. </h2>
+    <div class="container m-3 p-3">
+        <div class="row">
+            <div class="col-md-6 border border-primary">
+            <form class="form-inline" method=POST action="{% url 'home' %}">
+                {% csrf_token %}
+                <div class="col-md-8">
+                    <select class="custom-select my-1 mr-sm-2" id="country" name="country">
+                        <option selected value="">Select Country</option>
+                        {% for country in countries %}
+                            <option value="{{ country.code }}">{{ country.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-3 text-center">
+                    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+            <div class="col-md-6 border border-primary">
+            <form class="form-inline" method=POST action="{% url 'home' %}">
+                {% csrf_token %}
+
+                <div class="col-md-8">
+                    <select class="custom-select my-1 mr-sm-2" id="source" name="source">
+                        <option selected value="">Select Source</option>
+                        {% for source in sources %}
+                            <option value="{{ source.code }}">{{ source.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-3 text-center">
+                    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        {% for article in articles %}
+            <div class="col-md mb-3">
+                <div class="card h-100" style="width: 20rem;">
+                <img src="{{ article.urlToImage }}" class="card-img-top" alt="{{ article.source.name }}">
+                <div class="card-body">
+                  <h5 class="card-title">{{ article.title }}</h5>
+                  <p class="card-text">{{ article.description|truncatechars:150 }}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Country: {{ article.source.name }}</small>
+                    <a class="btn btn-sm btn-outline-success float-right" target="_blank" href="{{ article.url }}"> Read More</a>
+                </div>
+          </div>
+            </div>
+        {% endfor%}
+        </div>
+    </div>
+
+{% endblock content %}
