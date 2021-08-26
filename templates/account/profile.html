@@ -1,4 +1,6 @@
 {% extends "news/base.html" %}
+
+
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="content-section">
@@ -22,4 +24,11 @@
             </div>
         </form>
     </div>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#id_country').select2();
+        $('#id_source').select2();
+    });
+    </script>
 {% endblock content %}
