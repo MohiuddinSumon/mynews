@@ -1,2 +1,4 @@
 NEWSAPI_KEY=your_api_key_from_newsapi
 DATABASE_URL=postgres://user:password@host:port/database
+SENDGRID_API_KEY=your_sendgrid_api
+FROM_EMAIL=your_sendgrid_from_email
