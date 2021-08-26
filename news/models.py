@@ -6,7 +6,7 @@ class Country(models.Model):
     name = models.CharField(max_length=50, blank=True)
 
     def __str__(self):
-        return f"Country Code = {self.code}, Country Name = {self.name}"
+        return self.name
 
 
 class Source(models.Model):
@@ -19,4 +19,4 @@ class Source(models.Model):
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, related_name='sources')
 
     def __str__(self):
-        return f"Source Code = {self.code}, Source Name = {self.name}"
+        return self.name

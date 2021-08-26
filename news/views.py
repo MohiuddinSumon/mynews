@@ -1,6 +1,4 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from django.urls import reverse
+from django.shortcuts import render, redirect
 from newsapi import NewsApiClient
 from decouple import config
 from .models import Country, Source
@@ -27,6 +25,8 @@ def home(request):
         head_lines = news_api.get_top_headlines()
 
     articles = head_lines['articles']
+
+    # articles = {}
 
     return render(request, 'news/home.html', {
             'articles': articles,

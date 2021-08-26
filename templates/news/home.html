@@ -8,7 +8,7 @@
             <form class="form-inline" method=POST action="{% url 'home' %}">
                 {% csrf_token %}
                 <div class="col-md-8">
-                    <select class="custom-select my-1 mr-sm-2" id="country" name="country">
+                    <select class="custom-select my-1 mr-sm-2" id="country" name="country" >
                         <option selected value="">Select Country</option>
                         {% for country in countries %}
                             <option value="{{ country.code }}">{{ country.name }}</option>
@@ -16,7 +16,7 @@
                     </select>
                 </div>
                 <div class="col-md-3 text-center">
-                    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-success my-2 my-sm-0" type="submit">Search </button>
                 </div>
             </form>
         </div>
@@ -60,4 +60,10 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#country').select2();
+            $('#source').select2();
+        });
+    </script>
 {% endblock content %}
