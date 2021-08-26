@@ -3,22 +3,24 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from account.forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .models import Profile
 
 
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created! Login to the system {username} ')
-            return redirect('login')
+            Profile.objects.create(user=user)
+            return redirect('profile')
     else:
         form = UserRegisterForm()
     return render(request, 'account/register.html', {'form': form})
 
 
-@login_required
+@login_required(login_url='/login/')
 def profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)

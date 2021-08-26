@@ -137,3 +137,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # change crispy css template to bootstrap 4
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# where user will go to after successful login
+LOGIN_REDIRECT_URL = 'profile'
+
+# setting default login route
+LOGIN_URL = 'login'
