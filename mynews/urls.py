@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.authtoken.views import obtain_auth_token
+
 from account import views as account_views
 from django.contrib.auth import views as auth_views
 
@@ -30,6 +32,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('news.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='account/login.html'), name='login'),
+    path('token/', obtain_auth_token, name='token'),
     path('logout/', auth_views.LogoutView.as_view(template_name='account/logout.html'), name='logout'),
     path('register/', account_views.register, name='register'),
     path('profile/', account_views.profile, name='profile'),

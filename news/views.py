@@ -1,6 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views.generic import ListView
+from rest_framework import serializers
+from rest_framework.generics import ListAPIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
+
 from .models import Country, Source, News
 from . import news_api
 
@@ -43,3 +48,17 @@ class UserNewsListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return News.objects.select_related("user").filter(user=self.request.user).order_by('-created')
 
+
+class NewsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = News
+        fields = '__all__'
+
+
+class UserNewsAPI(ListAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = NewsSerializer
+    ordering = ['-created']
+
+    def get_queryset(self):
+        return News.objects.select_related("user").filter(user=self.request.user)
