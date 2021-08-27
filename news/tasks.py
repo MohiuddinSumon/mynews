@@ -13,6 +13,7 @@ def fetch_news_for_user():
         countries_qs = user.profile.country.all()
         sources_qs = user.profile.source.all()
         keyword = user.profile.keyword
+        keywords = []
         if keyword:
             keywords = keyword[0].split()
 
