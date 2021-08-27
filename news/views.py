@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from newsapi import NewsApiClient
 from decouple import config
-from .models import Country, Source
+from .models import Country, Source, News
 
 news_api = NewsApiClient(api_key=config('NEWSAPI_KEY'))
 
@@ -48,19 +48,29 @@ def custom_picks(request):
     if keyword:
         keyword = keyword[0].split()
 
-    result = []
+    results = []
 
     for country in countries_qs:
         head_lines = news_api.get_top_headlines(language=None, country=country.code)
-        result.extend(head_lines.get('articles'))
+        results.extend(head_lines.get('articles'))
 
     source = ''
     for src in sources_qs:
         source += src.code + ', '
     if source:
         head_lines = news_api.get_top_headlines(language=None, sources=source)
-        result.extend(head_lines.get('articles'))
+        results.extend(head_lines.get('articles'))
+
+    for result in results:
+        print(f"REsult = {result}")
+        News.objects.create(user=user,
+                            source=result.get('source').get('name', 'default'),
+                            title=result.get('title'),
+                            description=result.get('description'),
+                            url=result.get('url'),
+                            publish_date=result.get('publishedAt'),
+                            image_url=result.get('urlToImage', 'no image provided'))
 
     return render(request, 'news/picks.html', {
-            'articles': result,
+            'articles': results,
     })

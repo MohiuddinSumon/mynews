@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -20,3 +21,17 @@ class Source(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class News(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='news')
+    source = models.TextField(null=True, blank=True)
+    title = models.TextField(null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    url = models.TextField(null=True, blank=True)
+    image_url = models.TextField(null=True, blank=True)
+    publish_date = models.DateTimeField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.title} pk= {self.pk}'
