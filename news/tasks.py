@@ -14,12 +14,16 @@ def fetch_news_for_user():
         sources_qs = user.profile.source.all()
         keyword = user.profile.keyword
         if keyword:
-            keyword = keyword[0].split()
+            keywords = keyword[0].split()
 
         results = []
 
         for country in countries_qs:
             head_lines = news_api.get_top_headlines(language=None, country=country.code)
+            results.extend(head_lines.get('articles'))
+
+        for word in keywords:
+            head_lines = news_api.get_top_headlines(language=None, q=word)
             results.extend(head_lines.get('articles'))
 
         source = ''
@@ -30,19 +34,22 @@ def fetch_news_for_user():
             results.extend(head_lines.get('articles'))
 
         for result in results:
-            News.objects.get_or_create(user=user,
-                                       source=result.get('source').get('name', 'default'),
-                                       title=result.get('title'),
-                                       description=result.get('description'),
-                                       url=result.get('url'),
-                                       publish_date=result.get('publishedAt'),
-                                       image_url=result.get('urlToImage', 'no image provided'))
+            try:
+                News.objects.get_or_create(user=user,
+                                           source=result.get('source').get('name', 'default'),
+                                           title=result.get('title'),
+                                           description=result.get('description'),
+                                           url=result.get('url'),
+                                           publish_date=result.get('publishedAt'),
+                                           image_url=result.get('urlToImage', 'no image provided'))
+            except Exception:
+                pass
 
 
 app.conf.timezone = "Asia/Dhaka"
 app.conf.beat_schedule = {
     'fetch-user-news': {
-        'task': 'mynews.news.tasks.fetch_news_for_user',
+        'task': 'news.tasks.fetch_news_for_user',
         'schedule': crontab(minute='*/15')
     }
 }
