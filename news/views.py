@@ -41,6 +41,5 @@ class UserNewsListView(LoginRequiredMixin, ListView):
     paginate_by = 15
 
     def get_queryset(self):
-        user = self.request.user
-        return News.objects.filter(user=user).order_by('-created')
+        return News.objects.select_related("user").filter(user=self.request.user).order_by('-created')
 
