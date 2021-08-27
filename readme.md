@@ -40,3 +40,8 @@ Create a .env file and give value as **env_sample.txt**
 
 ## Redis needs to be running
 For scheduling task redis is used as a broker for celery and it needs to be running.
+* **Worker =>** `celery -A mynews worker -l info`
+* **Beat =>** `celery -A mynews beat -l info`
+
+One scheduler will run every 15 minute to fetch user specific news and save them.
+Another will run every day and send newsletter email to user.
