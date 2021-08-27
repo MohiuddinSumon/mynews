@@ -33,4 +33,7 @@ Please follow the following guideline to set up this application
 * `pip install -r requirements.txt`
 * `python3 manage.py migrate`
 * `python3 manage.py loaddata newsapi_sources newsapi_countries`
-* 
+
+## Environment Setup
+You will need api from sendgrid (for mail) and newsapi (for news).
+Create a .env file and give value as **env_sample.txt**
