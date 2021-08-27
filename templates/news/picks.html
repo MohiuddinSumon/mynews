@@ -1,0 +1,31 @@
+{% extends 'news/base.html' %}
+{% load tz %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+        {% for article in articles %}
+            <div class="col-md mb-3">
+                <div class="card h-100" style="width: 20rem;">
+                <img src="{{ article.urlToImage }}" class="card-img-top" alt="{{ article.source.name }}">
+                <div class="card-body">
+                  <h5 class="card-title">{{ article.title }}</h5>
+                  <p class="card-text">{{ article.description|truncatechars:150 }}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Source: {{ article.source.name }}</small>
+                    <a class="btn btn-md btn-outline-success float-right" target="_blank" href="{{ article.url }}"> Read More</a>
+                </div>
+          </div>
+            </div>
+        {% endfor%}
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#country').select2();
+            $('#source').select2();
+        });
+    </script>
+{% endblock content %}
