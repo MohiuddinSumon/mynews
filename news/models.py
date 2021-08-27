@@ -28,10 +28,13 @@ class News(models.Model):
     source = models.TextField(null=True, blank=True)
     title = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    url = models.TextField(unique=True)
+    url = models.TextField(null=True, blank=True)
     image_url = models.TextField(null=True, blank=True)
     publish_date = models.DateTimeField()
     created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('url', 'user')
 
     def __str__(self):
         return f'{self.title} pk= {self.pk}'

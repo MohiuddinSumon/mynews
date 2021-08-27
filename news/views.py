@@ -62,14 +62,13 @@ def custom_picks(request):
         results.extend(head_lines.get('articles'))
 
     for result in results:
-        print(f"REsult = {result}")
-        News.objects.create(user=user,
-                            source=result.get('source').get('name', 'default'),
-                            title=result.get('title'),
-                            description=result.get('description'),
-                            url=result.get('url'),
-                            publish_date=result.get('publishedAt'),
-                            image_url=result.get('urlToImage', 'no image provided'))
+        News.objects.get_or_create(user=user,
+                                   source=result.get('source').get('name', 'default'),
+                                   title=result.get('title'),
+                                   description=result.get('description'),
+                                   url=result.get('url'),
+                                   publish_date=result.get('publishedAt'),
+                                   image_url=result.get('urlToImage', 'no image provided'))
 
     return render(request, 'news/picks.html', {
             'articles': results,
