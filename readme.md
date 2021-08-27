@@ -45,3 +45,18 @@ For scheduling task redis is used as a broker for celery and it needs to be runn
 
 One scheduler will run every 15 minute to fetch user specific news and save them.
 Another will run every day and send newsletter email to user.
+
+
+## User News List - API (postman)
+We have a `/news-api/` end point that will serve user specific news.
+This is done with drf and token protected. So you will need the token from 
+`/token/` endpoint. Make a post request to this with username and password in Body. 
+```json
+{
+    "username": "your_user_name",
+    "password": "SuPeR&seCreT"
+}
+```
+In response you will get token  = `{"token":"d08d2cb80c6b79c93772d8c5b7b4d281b233abe1"}`
+For `news-api` go to `Auth -> API Key` then Key = `Authorization`, Value = `Token d08d2cb80c6b79c93772d8c5b7b4d281b233abe1`. 
+This will give the news response for that user. 
