@@ -37,3 +37,6 @@ Please follow the following guideline to set up this application
 ## Environment Setup
 You will need api from sendgrid (for mail) and newsapi (for news).
 Create a .env file and give value as **env_sample.txt**
+
+## Redis needs to be running
+For scheduling task redis is used as a broker for celery and it needs to be running.

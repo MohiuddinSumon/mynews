@@ -1,10 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from newsapi import NewsApiClient
-from decouple import config
+from django.shortcuts import render
 from .models import Country, Source, News
-
-news_api = NewsApiClient(api_key=config('NEWSAPI_KEY'))
+from . import news_api
 
 
 def home(request):
