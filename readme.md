@@ -33,4 +33,15 @@ Please follow the following guideline to set up this application
 * `pip install -r requirements.txt`
 * `python3 manage.py migrate`
 * `python3 manage.py loaddata newsapi_sources newsapi_countries`
-* 
+
+## Environment Setup
+You will need api from sendgrid (for mail) and newsapi (for news).
+Create a .env file and give value as **env_sample.txt**
+
+## Redis needs to be running
+For scheduling task redis is used as a broker for celery and it needs to be running.
+* **Worker =>** `celery -A mynews worker -l info`
+* **Beat =>** `celery -A mynews beat -l info`
+
+One scheduler will run every 15 minute to fetch user specific news and save them.
+Another will run every day and send newsletter email to user.

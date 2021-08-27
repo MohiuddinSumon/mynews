@@ -1,9 +1,8 @@
-from django.shortcuts import render, redirect
-from newsapi import NewsApiClient
-from decouple import config
-from .models import Country, Source
-
-news_api = NewsApiClient(api_key=config('NEWSAPI_KEY'))
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Country, Source, News
+from . import news_api
 
 
 def home(request):
@@ -35,3 +34,13 @@ def home(request):
             'selected_country': selected_country,
             'selected_source': selected_source,
     })
+
+
+class UserNewsListView(LoginRequiredMixin, ListView):
+    model = News
+    paginate_by = 15
+
+    def get_queryset(self):
+        user = self.request.user
+        return News.objects.filter(user=user).order_by('-created')
+
