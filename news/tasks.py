@@ -1,6 +1,8 @@
-from celery import Celery
 from celery.schedules import crontab
+from decouple import config
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
+
 from . import news_api
 from mynews.celery import app
 from news.models import News
@@ -47,10 +49,39 @@ def fetch_news_for_user():
                 pass
 
 
+@app.task
+def send_email_for_keyword_news():
+    users = User.objects.all()
+    for user in users:
+        keyword = user.profile.keyword
+        keywords = []
+        if keyword:
+            keywords = keyword[0].split()
+
+        news_found = False
+        for word in keywords:
+            head_lines = news_api.get_top_headlines(language=None, q=word)
+            if head_lines.get('totalResults', 0) > 0:
+                news_found = True
+                break
+
+        if news_found:
+            from_email = config('FROM_EMAIL')
+            send_mail(subject='You Have News!!',
+                      message='Hey you have new news to check on the site. ',
+                      from_email=None,
+                      recipient_list=[user.email],
+                      fail_silently=False)
+
+
 app.conf.timezone = "Asia/Dhaka"
 app.conf.beat_schedule = {
     'fetch-user-news': {
         'task': 'news.tasks.fetch_news_for_user',
         'schedule': crontab(minute='*/15')
-    }
+    },
+    'send-email-for-keyword': {
+        'task': 'news.tasks.send_email_for_keyword_news',
+        'schedule': crontab(minute=0, hour='*/3, 8-18')  # every 3 hour between 8AM to 6 PM
+    },
 }
