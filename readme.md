@@ -24,7 +24,7 @@ Please follow the following guideline to set up this application
   * `sudo -u postgres psql`
   * `CREATE USER news;`
   * `ALTER USER news WITH SUPERUSER;`
-  * `ALTER USER saleor WITH PASSWORD 'news';`
+  * `ALTER USER news WITH PASSWORD 'news';`
   * `CREATE DATABASE mynews;`
 
 ## Project Setup
