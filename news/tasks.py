@@ -82,6 +82,6 @@ app.conf.beat_schedule = {
     },
     'send-email-for-keyword': {
         'task': 'news.tasks.send_email_for_keyword_news',
-        'schedule': crontab(minute=0, hour='*/3, 8-18')  # every 3 hour between 8AM to 6 PM
+        'schedule': crontab(minute=0, hour='*/3,8-18')  # every 3 hour between 8AM to 6 PM
     },
 }
